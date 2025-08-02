@@ -3,16 +3,9 @@ import os
 import pandas as pd
 from flask import Flask, request, Response
 from health_insurance.HealthInsurance import HealthInsurance
-
-
-try:
-    ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) #local
-except NameError:
-    ROOT_PATH = os.getcwd()  #Colab or Jupyter
-    
-    
+ 
 # loading model
-model_path = os.path.join(ROOT_PATH, 'model', 'model_health_insurance.pkl')
+model_path = 'model/model_health_insurance.pkl'
 model = pickle.load(open(model_path, 'rb'))
 
 # initialize API
